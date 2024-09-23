@@ -1,50 +1,35 @@
-# React + TypeScript + Vite
+# Site de Comparação de Preços de Gasolina e Álcool
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este site foi desenvolvido utilizando **React** com **TypeScript** e tem como objetivo auxiliar os usuários a decidirem se é mais vantajoso abastecer com gasolina ou álcool, com base nos preços de cada combustível.
 
-Currently, two official plugins are available:
+## Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React**: Utilizado para criar a interface do usuário de maneira eficiente, com gerenciamento de estado local para capturar e calcular os preços.
+- **TypeScript**: Fornece tipagem estática para garantir maior segurança e previsibilidade durante o desenvolvimento.
+- **CSS**: O design simples e funcional foi desenvolvido utilizando um arquivo CSS externo (`App.css`).
+- **Imagens**: Uma logo personalizada foi adicionada ao projeto, exibida no topo da página.
 
-## Expanding the ESLint configuration
+## Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. **Entrada de Dados**:
+   - O usuário pode inserir os valores do **preço do álcool** e da **gasolina** em reais.
+   - Os valores são manipulados com precisão, utilizando o método `toLocaleString` para formatar a moeda no padrão brasileiro (BRL).
 
-- Configure the top-level `parserOptions` property like this:
+2. **Cálculo Automático**:
+   - Ao submeter os valores, o site realiza um cálculo simples: **álcool ÷ gasolina**.
+   - Se o resultado for **menor ou igual a 0.7**, o site recomenda o uso do álcool. Caso contrário, sugere abastecer com gasolina.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+3. **Exibição dos Resultados**:
+   - Após o cálculo, os resultados são exibidos em uma seção com o título e os valores inseridos, indicando claramente qual combustível é mais vantajoso no momento.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Interface de Usuário
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+A interface é organizada de maneira simples e intuitiva:
+- O usuário é recebido com a logo do site no topo.
+- Dois campos de entrada permitem a digitação dos preços dos combustíveis.
+- Um botão de "Calcular" dispara o cálculo e exibe os resultados abaixo.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Exemplo de Uso
+
+O usuário insere o preço do álcool como `4,90` e o da gasolina como `6,00`. Após clicar em "Calcular", o site exibirá o resultado:
+
